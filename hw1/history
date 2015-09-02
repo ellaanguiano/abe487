@@ -1,0 +1,123 @@
+ls
+ls -l
+pwd
+cd /rsgrps/bhurwitz/hurwitzlab/abe487
+cd
+(~) 56% pwd
+cd
+mkdir abe487
+ls
+cd foo/
+touch bar
+cd
+man wc
+cd
+cd abe487
+~ls ls
+ls
+ls -la
+sort | uniq
+date
+date; echo hello; date
+cd .ssh/
+cd
+~
+cp /tmp/cuffdiff.txt .
+w
+ls 
+ls -af
+ls -aF
+ls -af
+ls
+cd abe487/
+ls
+ls -la
+git help
+git status
+cd ..
+rmdir abe487/
+git clone
+git clone https://github.com/ellaanguiano/abe487.git
+ls 
+cd abe487/
+la
+ls
+ls -la
+mkdir hw1
+cd hw1/
+ftp ftp.imicrobe.us
+ls 
+ls -l
+ls -lh
+head cuffdiff.txt 
+man head
+head -n2 
+head -n2 cuffdiff.txt 
+tail -n3 cuffdiff.txt 
+man tail
+tail --help
+cd abe487/
+ls
+cd hw1/
+ls
+date; echo hello; date
+head cuffdiff.txt 
+man grep
+grep chr8 cuffdiff.txt 
+man grep
+grep -i chr8 cuffdiff.txt 
+grep -i chr8 cuffdiff.txt > chr8
+ls
+wc chr8
+man wc
+wc -l chr8
+grep -i chr8 cuffdiff.txt | wc -l
+rm chr8
+ls
+git help
+git status
+git add . 
+git status
+git commit -m "initial commit"
+ git config --global user.name "Ella Anguiano"
+ git config --global user.email ellaanguiano@email.arizona.edu
+git commit -m "initial commit"
+git status
+git push
+cd ~/.ssh
+ls -la
+ssh-keygen
+ls -la
+head id_rsa
+cat id_rsa.pub 
+~
+.
+~
+cd ~
+ls -l
+ls -lt
+ls -lt | head
+date; date
+man
+man ls
+l --author
+ls --author
+cd ~
+cd ~/.ssh
+cat id_rsa.pub
+cd abe487
+cd ~
+ls
+cd abe487/
+ls
+cd hw1/
+.
+head ,
+head.
+head .
+cls
+q
+cd .
+pwd
+cd ..
+cd
