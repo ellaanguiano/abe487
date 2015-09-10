@@ -1,0 +1,8 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+print "\t My bologna has a first name\n";
+print "\t  It's O-S-C-A-R\n";
+print "\t My bologna has a second name\n";
+print "\t It's M-A-Y-E-R\n";

@@ -1,0 +1,6 @@
+#!/usr/bin/env perl
+use strict;
+use warnings; 
+
+print "\t The difference between single and double quotes is that single quotes\n";
+print 'will not interpolate escape codes like \n and \t.';

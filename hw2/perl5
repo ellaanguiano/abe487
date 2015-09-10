@@ -1,0 +1,9 @@
+
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+my $color = "Red";
+
+print "\t Under the boardwalk, down by the sea $color ",  2+3, "\n";
+print "\t On a blanket with my baby is where I'll be. \n";
