@@ -1,9 +1,16 @@
+#!/usr/bin/env perl
 
-#! /usr/bin/perl
 #file: add.pl
 use strict;
 use warnings;
 
+if (scalar(@ARGV) != 2) {
+    die "I need two numbers.\n";
+}
+
+#unless (scalar(@ARGV) == 2) {
+#    die "I need two numbers.\n";
+#}
 
 my $first = shift(@ARGV);
 my $second = shift(@ARGV);
@@ -14,16 +21,17 @@ if (defined $first) {
 elsif ($first >= 0) {
 	print "This needs to be positive! \n";
 }
-elsif {
+else {
 	die  "Give me two numbers or else.\n";
 }
+
 if (defined $second) {
 	print "$second is defined \n";
 }
 elsif ($second >= 0) {
 	print "This needs to positive! \n";
 }
-elsif{
+else {
 	die "I need two numbers! Not just one, fool!\n";
 }
 
