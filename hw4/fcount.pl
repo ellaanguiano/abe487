@@ -2,18 +2,21 @@
 #file: fcount.pl
 use strict; 
 use warnings;
+use autodie;
+use feature 'say';
 
-my $inf = 'PerlIII.fastq';
-open(IN, '<', $inf) or die "File would not read: $! \n";
+my $inf = shift || 'Perl_III.fastq';
+open my $inf_fh, '<', $inf;
 
-my $lc = 0;
-while (my $line = <$inf>) {
-	$lc = $lc + 1;
-	my $length = length($line);
+my ($lc, $length) = (0,0);
+
+while (my $line = <$inf_fh>) {
+	$lc = $lc++;
+	$length = length($line);
+
 }
-my $ave = $length/$lc;
 
 print "There are ", $lc, "  lines. \n";
 print "The total number of characters are", $length, ". \n";
-print "The Average line length is ", $ave, ". \n";
+print "The Average line length is ", $length/$lc;
 

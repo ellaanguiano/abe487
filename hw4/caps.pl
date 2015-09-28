@@ -2,16 +2,24 @@
 #file : caps.pl
 use strict;
 use warnings;
+use autodie;
+use feature 'say';
+
+  
+unless(scalar(@ARGV) == 2){
+	die "Please provide 2 arguments";
+}
+
+my $in  = shift(@ARGV);
+my $out = shift(@ARGV) ;
+
+open(my $in_fh, '<', $in);
+open(my $out_fh, '>', $out);
+
+while (my $line = <$in_fh>) {
+
+	print $out_fh uc $line;
+}
+
+say "'$in' => '$out";
  
-#provides the file to read from then the file to write to
-print "Please provide file name to read to.\n";
-print "Please provide file name to write to.\";
-my $in = shift(@ARGV);
-my $out = shift(@ARGV);
- 
-open(IN, '<', $in) or die "cannot open $in: $! \n";
-open(OUT, '>', $out) or die "cannot open $out: $! \n";
-while (my $line = <IN>) {
-                chomp $line;
-my $caps = uc $line;
-print OUT "$caps \n";

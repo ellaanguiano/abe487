@@ -3,7 +3,14 @@
 use strict;
 use warnings;
 
-while(my $line = <>){
+my $in  = 'Perl_III.nobody';
+my $out = 'Perl_III.nobody';
+
+open my $in_fh , '<', $in;
+open my $out_fh, '<', $out;
+
+
+while(my $line = <$in_fh>){
 	chomp $line;
 $line = lc $line;
 my $no_ind = index($line, 'nobody');
