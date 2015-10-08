@@ -10,17 +10,12 @@ unless(@ARGV > 0){
 }
 
 my @evens;
-my @odds;
+
 for my $num(@ARGV) {
     my $rem = $num % 2;
     if ($rem == 0) {
        push @evens, $num;
-    }
-    else {
-        push @odds, $num,
     }   
-    say $rem;  
 }
 
-print "evens = ", join(', ',  @evens), "\n";
-print "odds = ", join(', ', @odds), "\n";
+print "evens = ", join(', ',  @evens), "\n"; 

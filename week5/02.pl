@@ -18,10 +18,10 @@ for my $num(@ARGV) {
        $sumeven += $num ;
     }
     else {
-        push @odds, $num,
+       $sumodd += $num;
     }   
 
 }
 
-print "evens = ", join(', ',  @evens), "\n";
-print "odds = ", join(', ', @odds), "\n";
+print "sum evens = ", $sumeven, "\n";
+print "sum odds = ", $sumodd, "\n";
