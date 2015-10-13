@@ -39,3 +39,9 @@ print "Percent GC = ", $GC/$len, "\n";
 #print "Length: ", @len, "\n";
 #print "#GC : ",
 #print "% 
+
+__END__
+
+Almost there!  
+
+Two points off.

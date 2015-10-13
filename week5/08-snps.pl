@@ -22,9 +22,13 @@ for ( my $i = 0 ; $i < length($seq) ; $i++ ) {
     my $seq2 = substr $seqa, $i, 1;
     if ( $seq1 ne $seq2 ) {
         $numsnps++;
-        say "Position: ", $i + 1, " ", $seq1, "=>", $seq2;
+        say "Pos: ", $i + 1, ": ", $seq1, " => ", $seq2;
     }
 }
 
 say "Found $numsnps SNPs. \n";
 
+__END__
+
+Nice job, but the expected output was still not quite right.  Points off next
+time.
