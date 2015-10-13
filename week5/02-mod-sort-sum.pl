@@ -25,3 +25,7 @@ for my $num(@ARGV) {
 
 print "sum evens = ", $sumeven, "\n";
 print "sum odds = ", $sumodd, "\n";
+
+__END__
+
+Please name correctly or this will not pass the test suite.

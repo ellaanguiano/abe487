@@ -6,7 +6,7 @@ use autodie;
 use feature 'say';
 
 unless(scalar@ARGV > 0) {
-    say "Please provide a list of sequences.";
+    die "Please provide a list of sequences.\n";
 }
 
 my @sort_seq = sort{$a cmp $b}(@ARGV);

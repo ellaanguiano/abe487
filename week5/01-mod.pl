@@ -6,7 +6,7 @@ use autodie;
 use feature 'say';
 
 unless(@ARGV > 0){
-   say "Please provide a list of numbers."
+   die "Please provide a list of numbers.\n"
 }
 
 my @evens;
