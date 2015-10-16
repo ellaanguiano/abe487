@@ -16,8 +16,11 @@ my %homes = (
 
 say Dumper(\%homes);
 
+
+
 foreach my $city (sort keys %homes) {
     my $aa = $homes{$city};
+    
     print "$city, $aa \n";
 }
 
