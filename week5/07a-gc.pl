@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/perl env
 # 07-gc.pl
 use strict; 
@@ -9,16 +11,33 @@ unless(scalar@ARGV > 0) {
     say "Please provide a sequence.";
 }
 
-my $seq = (@ARGV);
-my @len = $seq =~ //gi;
 
-foreach my $letter (sort {uc($a) cmp uc($b)} @words {
-    if ($letter eq 'g' && 'c'){
+my @inputseqs = map{lc} (@ARGV);
+my $seq  = shift(@inputseqs);
+
+for my $sequence(@inputseqs){
+    my @sequence = split(//, $sequence);
+my $len = 0;
+my $GC = 0;
+
+foreach my $bp(  @sequence){
+    if (($bp eq 'c') or ($bp eq 'g')){
+       $GC++ ;
     }
-   print "$letter\n";
-}
+        $len++;
+    }
 
 print "Seq : ", @ARGV, "\n";
-print "Length: ", @len, "\n";
+print "Length: ", $len, "\n";
+print "#GC : ",$GC, "\n";
+print "Percent GC = ", $GC/$len, "\n";
+
+
+
+
+
+
+#print "Seq : ", @ARGV, "\n";
+#print "Length: ", @len, "\n";
 #print "#GC : ",
 #print "% 
