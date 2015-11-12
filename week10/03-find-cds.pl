@@ -19,12 +19,22 @@ if ($opts{'help'} || $opts{'man'}) {
 }
 
 for my $file (@args) {
-    my $seqio_obj = Bio::SeqIO->new(-file => $file);
+    my $seqio_obj = Bio::SeqIO->new(-file => $file,
+                            -format => 'Genbank');
+    my $count = 0;
     while (my $seq_obj = $seqio_obj->next_seq) {
         my @cds;
         for my $feat_obj ($seq_obj->get_SeqFeatures){
             if ( $feat_obj->primary_tag eq 'CDS' ) {
                 push @cds, $feat_obj->get_tag_values("translation");
+                $count++;
+               # my $seq_id = $seq_obj->id;
+               # my $ncds = scalar @cds;
+               # say "seq_id has $ncds CDS";
+               # my $i;
+               # for my $cds(@cds){
+               # say ++$i, ": ", $cds->get_tag_values('translation');
+               # }
             }
         } 
         my $num_cds = scalar(@cds);

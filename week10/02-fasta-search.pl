@@ -10,16 +10,8 @@ use Bio::SeqIO;
 use Bio::DB::Fasta;
 use Bio::Tools::SeqPattern;
 
+
 my %opts = get_opts();
-
-@ARGV == 2 or pod2usage();
-my $file  = $ARGV[0];
-my $pat   = $ARGV[1];
-$pat =~s/\W//g;
-
-my $outfile = Bio::SeqIO ->(-file=>">$pat", -format=>'fasta');
-my $seqio   = Bio::SeqIO->new(-file=>$file, -format=>'fasta');
-my $pattern1 = Bio::Tools::SeqPattern->new(-ID =>$pat, -TYPE =>'fasta' );
 
 if ($opts{'help'} || $opts{'man'}) {
     pod2usage({
@@ -28,20 +20,31 @@ if ($opts{'help'} || $opts{'man'}) {
     });
 }
 
-say "Searching \'$file\' for \'$pat\'";
-
-my $db = Bio::DB::fasta->new($file);
-$outfile = Bio::SeqIO(-file=>">$pat.fa", -format=>'fasta');
+@ARGV == 2 or pod2usage();
+my ($file, $pat) = @ARGV;
+$pat =~s/\W//g;
+my $db = Bio::DB::Fasta->new($file);
 my @ids = grep {/$pat/} $db ->get_all_primary_ids;
 
-for my $id (@ids){
-    my $seq = $db->get_Seq_by_id($id);
-    $outfile->write_seq($id);
+say "Searching \'$file\' for \'$pat\'";
+
+my $outfile = Bio::SeqIO ->new(-file=>">$pat", -format=>'fasta');
+my $seqio   = Bio::SeqIO->new(-file=>$file, -format=>'fasta');
+say "Found ", scalar(@ids). " ids";
+
+if(scalar(@ids)>0){
+    (my $filename = $pat)=~s/\W//g;
+    $filename .= '.fa';
+
+    $outfile = Bio::SeqIO->new(-file=>">$filename", -format=>'fasta');
+
+
+    for my $id (@ids){
+        my $seq = $db->get_Seq_by_id($id);
+        $outfile->write_seq($seq);
+    }   
+    say "See results in ", $filename;
 }
-
-my $i = @ids;
-
-printf "Found %s id%s\n", $i, $i ==1? '' : 's';
 
 # --------------------------------------------------
 sub get_opts {
